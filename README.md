@@ -41,6 +41,6 @@ Option 2(this will allow the app to handle token refreshes):
 
 - Create an [Integration](https://developer.webex.com/docs/integrations) or [Service App](https://developer.webex.com/docs/service-apps) with the admin and compliance related recording scopes.
 - Generate your access and refresh tokens
-- Rename the [.env.local](.env.local) file to .env
+- Rename the [.env.local](.env.local) file to .env. And add .env to the .gitignore file
 - Add your Client ID, Client Secret and Refresh Token to the .env file.
 - You can also add your Access Token to the [token.json](token.json) file but the app will also ask you to enter one at first run if you haven't added it to the token.json file.
