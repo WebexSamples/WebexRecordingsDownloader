@@ -44,4 +44,3 @@ Option 2(this will allow the app to handle token refreshes):
 - Rename the [.env.local](.env.local) file to .env
 - Add your Client ID, Client Secret and Refresh Token to the .env file.
 - You can also add your Access Token to the [token.json](token.json) file but the app will also ask you to enter one at first run if you haven't added it to the token.json file.
-
