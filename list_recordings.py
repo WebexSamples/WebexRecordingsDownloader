@@ -41,7 +41,7 @@ def list(headers, site_url, weeks):
     #print(from_time)
     more = True
     count = 0
-    while more == True:
+    while more:
         try:
             url = "https://webexapis.com/v1/admin/recordings?siteUrl={0}&max=100&from={1}&to={2}".format(site_url, from_time, to_time)
             print("URL: "+url)
@@ -80,7 +80,7 @@ def list(headers, site_url, weeks):
                     storeRecordings(items)
                 count += 1
                 print("Page Count: {0}\n".format(str(count)))
-                while response.headers.get("link") != None:
+                while response.headers.get("link") is not None:
                     url = response.headers.get("link").strip()[1:].split(">")[0]
                     print("URL: "+url)
                     try:

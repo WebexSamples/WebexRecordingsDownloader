@@ -23,7 +23,7 @@ def getDownloadLinks(headers):
             links = downloadLink['temporaryDirectDownloadLinks']
             recordingDownloadLink = links['recordingDownloadLink']
             print("Download Link: "+recordingDownloadLink)
-            if recordingDownloadLink != None:
+            if recordingDownloadLink is not None:
                 try:
                     recording = requests.get(recordingDownloadLink)
                     if recording.status_code == 200:

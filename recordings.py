@@ -1,14 +1,14 @@
 import json
-from list_recordings import *
-from download_recordings import *
+import list_recordings
+import download_recordings
 
 from dotenv import load_dotenv
 from pathlib import Path
 dotenv_path = Path('.env')
 load_dotenv(dotenv_path=dotenv_path)
 
-tokenPath = os.path.dirname(os.path.abspath(__file__))
-filename = os.path.join(tokenPath, 'token.json')
+tokenPath = list_recordings.os.path.dirname(list_recordings.os.path.abspath(__file__))
+filename = list_recordings.os.path.join(tokenPath, 'token.json')
 with open (filename, 'r') as openfile:
     token = json.load(openfile)
     bearer = token["token"]
@@ -30,8 +30,8 @@ headers = {
     "Authorization":"Bearer "+str(bearer)
     }
 
-if not os.path.exists("Downloaded-Recordings/"):
-    os.makedirs("Downloaded-Recordings/")
+if not list_recordings.os.path.exists("Downloaded-Recordings/"):
+    list_recordings.os.makedirs("Downloaded-Recordings/")
 
 print("This app can be used to collect all recordingIds and associated hostEmails and then download all recordings locally.")
 print("First you'll choose option 1 to collect recording data and the app will terminate.")
@@ -40,7 +40,7 @@ print("Select an option:")
 print("1 - List all recordings and save to .csv file.")
 print("2 - Download recordings.\n")
 run = True
-while run == True:
+while run:
     choice = input("> ")
     print("You selected "+choice)
     try:
@@ -53,7 +53,7 @@ while run == True:
             run = result
         elif choice == "2":
             print("Downloading recordings...\n")
-            result = getDownloadLinks(headers)
+            result = download_recordings.getDownloadLinks(headers)
             print("Finished!")
             run = result
         else:
