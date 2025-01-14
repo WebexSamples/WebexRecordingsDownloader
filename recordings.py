@@ -21,6 +21,7 @@ with open (filename, 'r') as openfile:
         bearer = {"token":token}
         with open('token.json', 'w') as updateToken:
             json.dump(bearer, updateToken)
+        bearer = token
     else:
         print('Current Token: '+str(bearer))
 
@@ -48,7 +49,7 @@ while run:
             site_url = input("Enter the Webex site URL you want to pull recordings from.\nFor example: sitename.webex.com.  \n\n> ")
             weeks = input("Enter the number of weeks you would like to pull recording data for. \n\n> ")
             print("Listing recordings and saving to file, please wait...\n")
-            result = list(headers, site_url, weeks)
+            result = list_recordings.list(headers, site_url, weeks)
             print("Finished!")
             run = result
         elif choice == "2":
